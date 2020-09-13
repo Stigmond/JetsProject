@@ -12,13 +12,14 @@ public class AirField {
 
 	AirField() {
 		jetsInAirfield = new ArrayList<>();
-		jetsInAirfield = fillJetArray();
+		jetsInAirfield = fillJetArray("jets.txt");
 	}
 
-	protected List<Jet> fillJetArray() {
+	protected List<Jet> fillJetArray(String fileName) {
 
 		List<Jet> tempArray = new ArrayList<>();
-		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
+		System.out.println("Loading Airfield Inventory...");
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fileName))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
 				String[] fields = line.split(",");
@@ -51,7 +52,7 @@ public class AirField {
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-
+		System.out.println("Complete!");
 		return tempArray;
 	}
 

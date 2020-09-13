@@ -9,6 +9,6 @@ public class JetImpl extends Jet{
 	public void fly() {
 		System.out.println(this.toString());
 		double flightTime = this.getRange() / ((double)this.getSpeed());
-		System.out.println("This jet flies for " + flightTime + " hours.");
+		System.out.printf("This standard jet flies for %.2f hours.%n",flightTime);
 	}
 }

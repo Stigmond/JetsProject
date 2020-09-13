@@ -1,6 +1,5 @@
 package com.skilldistillery.jet;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,11 +23,11 @@ public class JetsApplication {
 
 		List<Jet> jetArray = this.airfield.getJetsInAirfield();
 
-		Menu();
+		Menu(jetArray);
 		input.close();
 	}
 
-	public void Menu() {
+	public void Menu(List<Jet> jetArray) {
 
 		boolean keepGoing = true;
 
@@ -45,34 +44,50 @@ public class JetsApplication {
 			}
 
 			switch (choice) {
+
 			case 1:
-				System.out.println("Method 1 goes here");
+				printJets(jetArray);
 				break;
+
 			case 2:
-				System.out.println("Method 2 goes here");
+				flyJets(jetArray);
 				break;
+
 			case 3:
-				System.out.println("Method 3 goes here");
+				fastestJet(jetArray);
 				break;
+
 			case 4:
-				System.out.println("Method 4 goes here");
+				longestRange(jetArray);
 				break;
+
 			case 5:
-				System.out.println("Method 5 goes here");
+				loadCargo(jetArray);
 				break;
+
 			case 6:
 				System.out.println("Method 6 goes here");
 				break;
+
 			case 7:
 				System.out.println("Method 7 goes here");
 				break;
+
 			case 8:
 				System.out.println("Method 8 goes here");
 				break;
+
 			case 9:
+				
+			
+			case 10:
+				break;
+				
+			case 11:
 				System.out.println("Goodbye!");
 				keepGoing = false;
 				break;
+				
 			default:
 				System.out.println("\nPlease select 1 - 9.");
 				break;
@@ -82,14 +97,69 @@ public class JetsApplication {
 	}
 
 	public void printMenu() {
-		System.out.println("\n1. List Fleet");
+		System.out.println("");
+		System.out.println("1. List Fleet");
 		System.out.println("2. Fly All Jets");
 		System.out.println("3. View Fastest Jet");
 		System.out.println("4. View Jet with Longest Range");
 		System.out.println("5. Load All Cargo Jets");
 		System.out.println("6. Dogfight!");
-		System.out.println("7. Add a Jet to Fleet");
-		System.out.println("8. Remove a Jet from Fleet");
-		System.out.println("9. Quit");
+		System.out.println("7. Extinguish a Fire");
+		System.out.println("8. Bomb a Target");
+		System.out.println("9. Add a Jet to Fleet");
+		System.out.println("10. Remove a Jet from Fleet");
+		System.out.println("11. Quit");
+	}
+
+	public void printJets(List<Jet> jetArray) {
+
+		System.out.println("\nThe following jets are located on this Airfield: \n");
+		for (Jet jet : jetArray) {
+			System.out.println(jet);
+		}
+	}
+
+	public void flyJets(List<Jet> jetArray) {
+
+		for (int i = 0; i < jetArray.size(); i++) {
+			System.out.println("\nJet No. " + (i + 1) + " is on the tarmac...");
+			jetArray.get(i).fly();
+		}
+	}
+
+	public void fastestJet(List<Jet> jetArray) {
+		double fastestSpeed = 0;
+		int index = 0;
+		for (int i = 0; i < jetArray.size(); i++) {
+			if (jetArray.get(i).getSpeed() > fastestSpeed) {
+				fastestSpeed = jetArray.get(i).getSpeed();
+				index = i;
+			}
+		}
+		System.out.println("\nThe fastest jet on this Airfield is: " + jetArray.get(index));
+		System.out.printf("This jet travels at a speed of Mach %.1f.%n", jetArray.get(index).getSpeedInMach());
+	}
+
+	public void longestRange(List<Jet> jetArray) {
+		int rangeMax = 0;
+		int index = 0;
+		for (int i = 0; i < jetArray.size(); i++) {
+			if (jetArray.get(index).getRange() > rangeMax) {
+				rangeMax = jetArray.get(index).getRange();
+				index = i;
+			}
+		}
+		System.out.println("\nThe jet with the longest range is: " + jetArray.get(index));
+	}
+	
+	public void loadCargo(List<Jet> jetArray) {
+		for (Jet jet : jetArray) {
+			if (jet instanceof CargoJet) {
+				((CargoJet) jet).loadCargo();
+			}
+			else {
+				continue;
+			}
+		}
 	}
 }

@@ -46,10 +46,10 @@ public abstract class Jet {
 		this.price = price;
 	}
 
-	public void getSpeedInMach(double speed) {
+	public double getSpeedInMach() {
 		double machSpeed;
 		machSpeed = (this.getSpeed()/ 760.00);
-		System.out.println("This jet has a speed of  Mach " + machSpeed);
+		return machSpeed;
 	}
 	
 	public abstract void fly();

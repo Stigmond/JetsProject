@@ -15,6 +15,6 @@ public class CargoJet extends Jet implements CargoCarrier {
 	public void fly() {
 		System.out.println(this.toString());
 		double flightTime = this.getRange() / ((double)this.getSpeed());
-		System.out.printf("This cargo jet flies for %.2f hours.", flightTime);
+		System.out.printf("This cargo jet flies for %.2f hours.%n", flightTime);
 	}
 }

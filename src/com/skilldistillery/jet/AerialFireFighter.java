@@ -21,6 +21,6 @@ public class AerialFireFighter extends Jet implements CargoCarrier, Discharges {
 	public void fly() {
 		System.out.println(this.toString());
 		double flightTime = this.getRange() / ((double)this.getSpeed());
-		System.out.println("This aerial fire fighter flies for " + flightTime + " hours.");
+		System.out.printf("This aerial firefighter flies for %.2f hours.%n",flightTime);
 	}
 }

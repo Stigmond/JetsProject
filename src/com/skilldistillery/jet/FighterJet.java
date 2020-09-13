@@ -15,7 +15,7 @@ public class FighterJet extends Jet implements CombatReady {
 	public void fly() {
 		System.out.println(this.toString());
 		double flightTime = this.getRange() / ((double)this.getSpeed());
-		System.out.println("This fighter jet flies for " + flightTime + " hours.");
+		System.out.printf("This fighter jet flies for %.2f hours.%n",flightTime);
 	}
 
 }

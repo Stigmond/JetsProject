@@ -28,6 +28,6 @@ public class BomberJet extends Jet implements CargoCarrier, CombatReady, Dischar
 	public void fly() {
 		System.out.println(this.toString());
 		double flightTime = this.getRange() / ((double)this.getSpeed());
-		System.out.println("This bomber flies for " + flightTime + " hours.");
+		System.out.printf("This bomber flies for %.2f hours.%n",flightTime);
 	}
 }
