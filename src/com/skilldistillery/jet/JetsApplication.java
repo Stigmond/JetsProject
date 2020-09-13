@@ -43,6 +43,7 @@ public class JetsApplication {
 			} catch (Exception e) {
 
 				System.out.println("\nInvalid input. Try again.");
+				input.nextLine();
 			}
 
 			switch (choice) {
