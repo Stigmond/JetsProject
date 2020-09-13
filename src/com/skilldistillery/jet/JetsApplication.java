@@ -1,5 +1,6 @@
 package com.skilldistillery.jet;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,12 +35,13 @@ public class JetsApplication {
 		while (keepGoing) {
 			printMenu();
 			System.out.print("\nPlease make a selection: ");
-			int choice = 0;
+			int choice = -1;
 
 			try {
 				choice = input.nextInt();
-			} catch (Exception e) {
 				input.nextLine();
+			} catch (Exception e) {
+
 				System.out.println("\nInvalid input. Try again.");
 			}
 
@@ -78,8 +80,11 @@ public class JetsApplication {
 				break;
 
 			case 9:
+				addJet(jetArray);
+				break;
 
 			case 10:
+				removeJet(jetArray);
 				break;
 
 			case 11:
@@ -183,7 +188,7 @@ public class JetsApplication {
 			}
 		}
 	}
-	
+
 	public void bombTarget(List<Jet> jetarray) {
 		for (Jet jet : jetarray) {
 			if (jet instanceof BomberJet) {
@@ -192,6 +197,98 @@ public class JetsApplication {
 			} else {
 				continue;
 			}
+		}
+	}
+
+	public void addJet(List<Jet> jetArray) {
+
+		boolean addAnother = false;
+
+		do {
+			System.out.print("\nPlease enter the new jet model: ");
+			String newModel = input.nextLine();
+
+			double newSpeed = 0.0;
+			boolean validSpeed = false;
+			while (!validSpeed) {
+				System.out.print("Please enter the top speed of the " + newModel + " (in MPH): ");
+				try {
+					newSpeed = (double) input.nextDouble();
+					if (newSpeed >= 0) {
+						validSpeed = true;
+					} else {
+						System.out.println("Invalid input.");
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid input.");
+					input.nextLine();
+				}
+			}
+
+			int newRange = 0;
+			boolean validRange = false;
+			while (!validRange) {
+				System.out.print("Please enter the maximum range of the " + newModel + " (in miles): ");
+				try {
+					newRange = input.nextInt();
+					if (newRange >= 0) {
+						validRange = true;
+					} else {
+						System.out.println("Invalid input.");
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid input.");
+					input.nextLine();
+				}
+			}
+
+			long newPrice = 0;
+			boolean validPrice = false;
+			while (!validPrice) {
+				System.out.print("Please enter the price of the " + newModel + ": $");
+				try {
+					newPrice = input.nextLong();
+					if (newPrice >= 0) {
+					validPrice = true;
+					} else {
+						System.out.println("Invalid input.");
+					}
+					input.nextLine();
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid input.");
+				}
+			}
+
+			Jet newJet = new JetImpl(newModel, newSpeed, newRange, newPrice);
+			jetArray.add(newJet);
+
+			System.out.println("\n..." + newModel + " successfully added!");
+
+			String yesNo = null;
+			boolean validResponse = false;
+			while (!validResponse) {
+				System.out.print("\nAdd another jet? (Y/N)");
+				yesNo = (input.nextLine()).toLowerCase();
+				if (yesNo.equals("no") || yesNo.equals("n")) {
+					validResponse = true;
+					addAnother = false;
+				} else if (yesNo.equals("yes") || yesNo.equals("y")) {
+					validResponse = true;
+					addAnother = true;
+					this.printJets(jetArray);
+				} else {
+					System.out.println("\nPlease enter (Y)es or (N)o.");
+				}
+
+			}
+		} while (addAnother);
+	}
+	
+	public void removeJet(List<Jet> jetArray) {
+		System.out.println("\nThe jets in the fleet are as follows: ");
+		for (int i = 0; i < jetArray.size(); i++) {
+			System.out.println("\n\tJet - " + (i+1) + " - ");
+			System.out.println(jetArray.get(i));
 		}
 	}
 }

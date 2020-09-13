@@ -8,7 +8,7 @@ public class AerialFireFighter extends Jet implements CargoCarrier, Discharges {
 	
 	@Override
 	public void releaseCargo() {
-		System.out.println("\nThe " + this.getModel() + " deploys its payload over the forest fire...");
+		System.out.println("The " + this.getModel() + " deploys its payload over the forest fire...");
 	}
 
 	@Override
