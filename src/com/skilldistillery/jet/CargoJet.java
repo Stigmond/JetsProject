@@ -8,7 +8,7 @@ public class CargoJet extends Jet implements CargoCarrier {
 
 	@Override
 	public void loadCargo() {
-		System.out.println("The " + this.getModel() + " takes in its cargo...");
+		System.out.println("\nThe " + this.getModel() + " takes in its cargo...");
 	}
 
 	@Override

@@ -66,28 +66,27 @@ public class JetsApplication {
 				break;
 
 			case 6:
-				System.out.println("Method 6 goes here");
+				dogfight(jetArray);
 				break;
 
 			case 7:
-				System.out.println("Method 7 goes here");
+				extinguishFire(jetArray);
 				break;
 
 			case 8:
-				System.out.println("Method 8 goes here");
+				bombTarget(jetArray);
 				break;
 
 			case 9:
-				
-			
+
 			case 10:
 				break;
-				
+
 			case 11:
 				System.out.println("Goodbye!");
 				keepGoing = false;
 				break;
-				
+
 			default:
 				System.out.println("\nPlease select 1 - 9.");
 				break;
@@ -151,13 +150,46 @@ public class JetsApplication {
 		}
 		System.out.println("\nThe jet with the longest range is: " + jetArray.get(index));
 	}
-	
+
 	public void loadCargo(List<Jet> jetArray) {
 		for (Jet jet : jetArray) {
 			if (jet instanceof CargoJet) {
 				((CargoJet) jet).loadCargo();
+			} else {
+				continue;
 			}
-			else {
+		}
+	}
+
+	public void dogfight(List<Jet> jetarray) {
+		for (Jet jet : jetarray) {
+			if (jet instanceof FighterJet) {
+				((FighterJet) jet).fight();
+			} else if (jet instanceof BomberJet) {
+				((BomberJet) jet).fight();
+			} else {
+				continue;
+			}
+		}
+	}
+
+	public void extinguishFire(List<Jet> jetarray) {
+		for (Jet jet : jetarray) {
+			if (jet instanceof AerialFireFighter) {
+				((AerialFireFighter) jet).loadCargo();
+				((AerialFireFighter) jet).releaseCargo();
+			} else {
+				continue;
+			}
+		}
+	}
+	
+	public void bombTarget(List<Jet> jetarray) {
+		for (Jet jet : jetarray) {
+			if (jet instanceof BomberJet) {
+				((BomberJet) jet).loadCargo();
+				((BomberJet) jet).releaseCargo();
+			} else {
 				continue;
 			}
 		}

@@ -8,7 +8,7 @@ public class FighterJet extends Jet implements CombatReady {
 	
 	@Override
 	public void fight() {
-		System.out.println("The " + this.getModel() + " performs a simulated aerial dogfight...");
+		System.out.println("\nThe " + this.getModel() + " performs a simulated aerial dogfight...");
 	}
 	
 	@Override

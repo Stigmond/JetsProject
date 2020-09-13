@@ -8,19 +8,19 @@ public class BomberJet extends Jet implements CargoCarrier, CombatReady, Dischar
 	
 	@Override
 	public void releaseCargo() {
-		System.out.println("This bomber prepares to drop its payload on the target...");
+		System.out.println("The " + this.getModel() + " prepares to drop its payload on the target...");
 
 	}
 
 	@Override
 	public void fight() {
-		System.out.println("This bomber engages in defensive maneuvers...");
+		System.out.println("\nThe " + this.getModel() + " engages in defensive maneuvers...");
 
 	}
 
 	@Override
 	public void loadCargo() {
-		System.out.println("This bomber begins loading its munitions for deployment...");
+		System.out.println("\nThe " + this.getModel() + " begins loading its munitions for deployment...");
 
 	}
 
