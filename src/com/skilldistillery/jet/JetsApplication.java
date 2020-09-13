@@ -88,7 +88,7 @@ public class JetsApplication {
 				break;
 
 			case 11:
-				System.out.println("Goodbye!");
+				System.out.println("\nGoodbye!");
 				keepGoing = false;
 				break;
 
@@ -117,10 +117,12 @@ public class JetsApplication {
 
 	public void printJets(List<Jet> jetArray) {
 
-		System.out.println("\nThe following jets are located on this Airfield: \n");
+		System.out.println("\nThe following are in the fleet: \n");
+		System.out.println("----------------");
 		for (Jet jet : jetArray) {
 			System.out.println(jet);
 		}
+		System.out.println("----------------");
 	}
 
 	public void flyJets(List<Jet> jetArray) {
@@ -140,7 +142,7 @@ public class JetsApplication {
 				index = i;
 			}
 		}
-		System.out.println("\nThe fastest jet on this Airfield is: " + jetArray.get(index));
+		System.out.println("\nThe fastest jet in this fleet is: " + jetArray.get(index));
 		System.out.printf("This jet travels at a speed of Mach %.1f.%n", jetArray.get(index).getSpeedInMach());
 	}
 
@@ -153,7 +155,7 @@ public class JetsApplication {
 				index = i;
 			}
 		}
-		System.out.println("\nThe jet with the longest range is: " + jetArray.get(index));
+		System.out.println("\nThe jet with the longest range in this fleet is: " + jetArray.get(index));
 	}
 
 	public void loadCargo(List<Jet> jetArray) {
@@ -249,7 +251,7 @@ public class JetsApplication {
 				try {
 					newPrice = input.nextLong();
 					if (newPrice >= 0) {
-					validPrice = true;
+						validPrice = true;
 					} else {
 						System.out.println("Invalid input.");
 					}
@@ -283,12 +285,34 @@ public class JetsApplication {
 			}
 		} while (addAnother);
 	}
-	
+
 	public void removeJet(List<Jet> jetArray) {
-		System.out.println("\nThe jets in the fleet are as follows: ");
+		System.out.println("\nThe following are in the fleet: \n");
+		System.out.println("----------------");
 		for (int i = 0; i < jetArray.size(); i++) {
-			System.out.println("\n\tJet - " + (i+1) + " - ");
-			System.out.println(jetArray.get(i));
+			System.out.println("Jet (" + (i + 1) + ") [Model: " + jetArray.get(i).getModel() + ", Price: $"
+					+ jetArray.get(i).getPrice() + ", Speed(MPH): " + jetArray.get(i).getSpeed() + ", Range(miles): "
+					+ jetArray.get(i).getRange() + "]");
 		}
+		System.out.println("----------------");
+
+		int remove = 0;
+		boolean validRemove = false;
+		while (!validRemove) {
+			System.out.print("\nPlease enter the number of the Jet you would like to remove: ");
+			try {
+				remove = input.nextInt();
+				if ((remove > 0) && (remove < jetArray.size() + 1)) {
+					validRemove = true;
+				} else {
+					System.out.println("Invalid number.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input");
+				input.nextLine();
+			}
+		}
+		jetArray.remove((remove - 1));
+		System.out.println("\n...Jet No. " + remove + " has been removed.");
 	}
 }
