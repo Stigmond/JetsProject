@@ -23,22 +23,66 @@ public class JetsApplication {
 	public void launch() {
 
 		List<Jet> jetArray = this.airfield.getJetsInAirfield();
-		
+
 		Menu();
 		input.close();
 	}
 
 	public void Menu() {
-		
+
 		boolean keepGoing = true;
+
 		while (keepGoing) {
-		printMenu();
-		keepGoing = false;
+			printMenu();
+			System.out.print("\nPlease make a selection: ");
+			int choice = 0;
+
+			try {
+				choice = input.nextInt();
+			} catch (Exception e) {
+				input.nextLine();
+				System.out.println("\nInvalid input. Try again.");
+			}
+
+			switch (choice) {
+			case 1:
+				System.out.println("Method 1 goes here");
+				break;
+			case 2:
+				System.out.println("Method 2 goes here");
+				break;
+			case 3:
+				System.out.println("Method 3 goes here");
+				break;
+			case 4:
+				System.out.println("Method 4 goes here");
+				break;
+			case 5:
+				System.out.println("Method 5 goes here");
+				break;
+			case 6:
+				System.out.println("Method 6 goes here");
+				break;
+			case 7:
+				System.out.println("Method 7 goes here");
+				break;
+			case 8:
+				System.out.println("Method 8 goes here");
+				break;
+			case 9:
+				System.out.println("Goodbye!");
+				keepGoing = false;
+				break;
+			default:
+				System.out.println("\nPlease select 1 - 9.");
+				break;
+			}
+
 		}
 	}
 
 	public void printMenu() {
-		System.out.println("1. List Fleet");
+		System.out.println("\n1. List Fleet");
 		System.out.println("2. Fly All Jets");
 		System.out.println("3. View Fastest Jet");
 		System.out.println("4. View Jet with Longest Range");
@@ -49,4 +93,3 @@ public class JetsApplication {
 		System.out.println("9. Quit");
 	}
 }
-
