@@ -2,7 +2,7 @@ package com.skilldistillery.jet;
 
 public class CargoJet extends Jet implements CargoCarrier {
 
-	CargoJet(String model, double speed, int range, long price) {
+	public CargoJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 

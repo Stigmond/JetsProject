@@ -2,7 +2,7 @@ package com.skilldistillery.jet;
 
 public class AerialFireFighter extends Jet implements CargoCarrier, Discharges {
 
-	AerialFireFighter(String model, double speed, int range, long price) {
+	public AerialFireFighter(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 	

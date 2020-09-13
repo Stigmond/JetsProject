@@ -10,12 +10,12 @@ public class AirField {
 
 	private List<Jet> jetsInAirfield;
 
-	AirField() {
+	public AirField() {
 		jetsInAirfield = new ArrayList<>();
 		jetsInAirfield = fillJetArray("jets.txt");
 	}
 
-	protected List<Jet> fillJetArray(String fileName) {
+	private List<Jet> fillJetArray(String fileName) {
 
 		List<Jet> tempArray = new ArrayList<>();
 		System.out.println("Loading Airfield Inventory...");

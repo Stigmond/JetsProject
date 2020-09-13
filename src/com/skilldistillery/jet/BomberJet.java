@@ -2,7 +2,7 @@ package com.skilldistillery.jet;
 
 public class BomberJet extends Jet implements CargoCarrier, CombatReady, Discharges {
 
-	BomberJet(String model, double speed, int range, long price) {
+	public BomberJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 	

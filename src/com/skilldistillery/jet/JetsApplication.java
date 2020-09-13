@@ -9,7 +9,7 @@ public class JetsApplication {
 	private AirField airfield;
 	private Scanner input;
 
-	JetsApplication() {
+	public JetsApplication() {
 		airfield = new AirField();
 		input = new Scanner(System.in);
 	}
@@ -93,7 +93,7 @@ public class JetsApplication {
 				break;
 
 			default:
-				System.out.println("\nPlease select 1 - 9.");
+				System.out.println("\nPlease select 1 - 11.");
 				break;
 			}
 
