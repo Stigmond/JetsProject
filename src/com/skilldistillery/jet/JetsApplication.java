@@ -212,6 +212,31 @@ public class JetsApplication {
 		boolean addAnother = false;
 
 		do {
+			
+			int jetType = 0;
+			boolean validType = false;
+			while (!validType) {
+				System.out.println("\nWould you like to add a: ");
+				System.out.println("[1] Standard Jet");
+				System.out.println("[2] Cargo Jet");
+				System.out.println("[3] Fighter Jet");
+				System.out.println("[4] Bomber Jet");
+				System.out.println("[5] Aerial FireFighter Jet");	
+				System.out.print("? ");
+				try {
+					jetType = input.nextInt();
+					if (jetType >= 1 && jetType <= 5) {
+						validType = true;
+						input.nextLine();
+					} else {
+						System.out.println("Invalid input.");
+					}
+				} catch (InputMismatchException e) {
+					System.out.println("Invalid input.");
+					input.nextLine();
+				}
+			}
+			
 			System.out.print("\nPlease enter the new jet model: ");
 			String newModel = input.nextLine();
 
@@ -266,9 +291,23 @@ public class JetsApplication {
 				}
 			}
 
+			if (jetType == 1) {
 			Jet newJet = new JetImpl(newModel, newSpeed, newRange, newPrice);
 			jetArray.add(newJet);
-
+			} else if (jetType == 2) {
+				Jet newJet = new CargoJet(newModel, newSpeed, newRange, newPrice);
+				jetArray.add(newJet);
+			} else if (jetType == 3) {
+				Jet newJet = new FighterJet(newModel, newSpeed, newRange, newPrice);
+				jetArray.add(newJet);
+			} else if (jetType == 4) {
+				Jet newJet = new BomberJet(newModel, newSpeed, newRange, newPrice);
+				jetArray.add(newJet);
+			} else {
+				Jet newJet = new AerialFireFighter(newModel, newSpeed, newRange, newPrice);
+				jetArray.add(newJet);
+			}
+			
 			System.out.println("\n..." + newModel + " successfully added!");
 
 			String yesNo = null;
