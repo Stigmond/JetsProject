@@ -334,7 +334,7 @@ public class JetsApplication {
 		System.out.println("\nThe following are in the fleet: \n");
 		System.out.println("----------------");
 		for (int i = 0; i < jetArray.size(); i++) {
-			System.out.println("Jet (" + (i + 1) + ") [Model: " + jetArray.get(i).getModel() + ", Price: $"
+			System.out.println(this.getClass().getSimpleName() + " (" + (i + 1) + ") [Model: " + jetArray.get(i).getModel() + ", Price: $"
 					+ jetArray.get(i).getPrice() + ", Speed(MPH): " + jetArray.get(i).getSpeed() + ", Range(miles): "
 					+ jetArray.get(i).getRange() + "]");
 		}
