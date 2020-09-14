@@ -92,6 +92,6 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet [model= " + model + ", speed(MPH)= " + speed + ", range(miles)= " + range + ", price= $" + price + "]";
+		return this.getClass().getSimpleName() + " [model= " + model + ", speed(MPH)= " + speed + ", range(miles)= " + range + ", price= $" + price + "]";
 	}
 }

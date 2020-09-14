@@ -89,7 +89,7 @@ public class JetsApplication {
 				break;
 
 			case 11:
-				System.out.println("\nGoodbye!");
+				System.out.println("\nThank you for using AirFast! Goodbye!");
 				keepGoing = false;
 				break;
 
