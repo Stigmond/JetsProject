@@ -19,9 +19,9 @@ This is the Week 3 assignment for the Skill Distillery Java Bootcamp that furthe
 
 4.  User has the option to add/remove jets to/from the array.  Should User wish to add a jet, they will be prompted to enter the model, speed, range, and cost of the jet the wish to include. Should User wish to remove a jet, they will be given a list of the jets and an option to choose a number for the corresponding jet they wish to remove.
 
-  When User has finished using the program, they may exit by choosing option 11 on the menu.
+5.  When User has finished using the program, they may exit by choosing option 11 on the menu.
 
-5.  Have fun!
+6.  Have fun!
 
 ### Java Topics Covered / Utilized
 
