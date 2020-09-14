@@ -103,17 +103,21 @@ public class JetsApplication {
 
 	public void printMenu() {
 		System.out.println("");
-		System.out.println("1. List Fleet");
-		System.out.println("2. Fly All Jets");
-		System.out.println("3. View Fastest Jet");
-		System.out.println("4. View Jet with Longest Range");
-		System.out.println("5. Load All Cargo Jets");
-		System.out.println("6. Dogfight!");
-		System.out.println("7. Extinguish a Fire");
-		System.out.println("8. Bomb a Target");
-		System.out.println("9. Add a Jet to Fleet");
-		System.out.println("10. Remove a Jet from Fleet");
-		System.out.println("11. Quit");
+		System.out.println(">>>>>>>>>>>>>>> AIRFAST v.1.0 >> >>>>> >>> >    ");
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >>>>> >>> >	");
+		System.out.println(">>	1. List Fleet								");
+		System.out.println(">>	2. Fly All Jets								");
+		System.out.println(">>	3. View Fastest Jet							");
+		System.out.println(">>	4. View Jet with Longest Range				");
+		System.out.println(">>	5. Load All Cargo Jets						");
+		System.out.println(">>	6. Dogfight!								");
+		System.out.println(">>	7. Extinguish a Fire						");
+		System.out.println(">>	8. Bomb a Target							");
+		System.out.println(">>	9. Add a Jet to Fleet						");
+		System.out.println(">>	10. Remove a Jet from Fleet					");
+		System.out.println(">>	11. Quit									");
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >>>>> >>> >	");	
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> >>>>> >>> >	");
 	}
 
 	public void printJets(List<Jet> jetArray) {
