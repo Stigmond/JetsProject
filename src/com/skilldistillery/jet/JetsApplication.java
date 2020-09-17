@@ -155,8 +155,8 @@ public class JetsApplication {
 		int rangeMax = 0;
 		int index = 0;
 		for (int i = 0; i < jetArray.size(); i++) {
-			if (jetArray.get(index).getRange() > rangeMax) {
-				rangeMax = jetArray.get(index).getRange();
+			if (jetArray.get(i).getRange() > rangeMax) {
+				rangeMax = jetArray.get(i).getRange();
 				index = i;
 			}
 		}
@@ -215,6 +215,7 @@ public class JetsApplication {
 			
 			int jetType = 0;
 			boolean validType = false;
+			
 			while (!validType) {
 				System.out.println("\nWould you like to add a: ");
 				System.out.println("[1] Standard Jet");
@@ -288,6 +289,7 @@ public class JetsApplication {
 					input.nextLine();
 				} catch (InputMismatchException e) {
 					System.out.println("Invalid input.");
+					input.nextLine();
 				}
 			}
 
